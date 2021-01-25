@@ -11,7 +11,7 @@ public class MyLinkedList {
         this.head = null;
     }
 
-    public void add(MyNode<Integer> newNode) {
+    public void addAtTop(MyNode<Integer> newNode) {
         if(this.tail == null) {
             this.tail = newNode;
         }
@@ -21,6 +21,18 @@ public class MyLinkedList {
             INode tempNode = this.head;
             this.head = newNode;
             this.head.setNext(tempNode);
+        }
+    }
+    public void addAtBottom(MyNode<Integer> newNode) {
+        if(this.head == null) {
+            this.head = newNode;
+        }
+        if(this.tail == null) {
+            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+            this.tail = newNode;
+
         }
     }
 
