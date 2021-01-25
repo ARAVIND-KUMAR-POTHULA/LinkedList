@@ -129,4 +129,27 @@ public class MyLinkedListTest {
                          insertingNode.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given4NumbersWhenAddedToLinkedListShouldDeleteGivenElementAndShouldShowLinkedListSize3() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(40);
+        MyNode<Integer> myFourthNode = new MyNode<>(70);
+
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.addAtBottom(myThirdNode);
+        myLinkedList.addAtBottom(myFourthNode);
+        System.out.println("ELEMENTS BERFORE DELETING");
+        myLinkedList.printMyNodes();
+        myLinkedList.deleteInBetween(mySecondNode,myThirdNode);
+        System.out.println("ELEMENTS AFTER DELETING");
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                         myFirstNode.getNext().equals(mySecondNode) &&
+                         mySecondNode.getNext().equals(myFourthNode) ;
+
+        Assert.assertTrue(result);
+    }
 }

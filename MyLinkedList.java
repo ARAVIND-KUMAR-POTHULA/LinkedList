@@ -47,7 +47,16 @@ public class MyLinkedList {
             insertingNode.setNext(tempNode.getNext());
             tempNode.setNext(insertingNode);
         }
+    public void deleteInBetween(MyNode<Integer> nodeBeforeDeletingNode, MyNode<Integer> deletingNode) {
 
+        INode tempNode = head;
+
+        while (tempNode.getNext() != nodeBeforeDeletingNode.getNext()) {
+            tempNode = tempNode.getNext();
+
+        }
+        nodeBeforeDeletingNode.setNext(deletingNode.getNext());
+    }
     public void deleteFirstElement() {
         head = head.getNext();
 
@@ -63,6 +72,7 @@ public class MyLinkedList {
         tail.setNext(null);
 
     }
+
      public int searchElement(int Element) {
          INode tempNode = head;
 
@@ -75,16 +85,19 @@ public class MyLinkedList {
          return 0;
      }
     public void printMyNodes() {
+        int size = 0;
         StringBuffer myNodes = new StringBuffer("My Nodes: ");
         INode tempNode = head;
         while (tempNode.getNext() != null) {
             myNodes.append(tempNode.getKey());
             if (!tempNode.equals(tail)) myNodes.append("->");
             tempNode = tempNode.getNext();
-
+            size++;
         }
         myNodes.append(tempNode.getKey());
+        System.out.println("SIZE OF LINKED LIST: " + (size+1));
         System.out.println(myNodes);
+
     }
 
 }
