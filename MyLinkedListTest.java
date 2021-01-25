@@ -3,6 +3,8 @@ package javapractice;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 
 public class MyLinkedListTest {
     @Test
@@ -88,5 +90,21 @@ public class MyLinkedListTest {
                          myLinkedList.tail.equals(mySecondNode);
 
         Assert.assertTrue(result);
+    }
+    @Test
+    public void given3NumbersAddedToLinkedListShouldSearchGivenElement() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.addAtBottom(myThirdNode);
+        myLinkedList.printMyNodes();
+
+
+        int result = myLinkedList.searchElement(30);
+
+        Assert.assertEquals(30,result);
     }
 }
