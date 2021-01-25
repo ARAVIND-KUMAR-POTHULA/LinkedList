@@ -35,4 +35,20 @@ public class MyLinkedListTest {
                          myLinkedList.head.equals(myFirstNode);
         Assert.assertTrue(result);
     }
+    @Test
+    public void givenNewNumberWhenAddedToLinkedListShouldAddInBetweenTwoNodes() {
+        MyNode<Integer> myFirstNode = new MyNode<>(50);
+        MyNode<Integer> mySecondNode = new MyNode<>(70);
+        MyNode<Integer> insertingNode = new MyNode<>(36);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.addInBetween(myFirstNode,insertingNode);
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.tail.equals(mySecondNode) &&
+                         myLinkedList.head.getNext().equals(insertingNode) &&
+                         myLinkedList.head.equals(myFirstNode);
+        Assert.assertTrue(result);
+    }
 }
