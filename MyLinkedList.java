@@ -48,6 +48,12 @@ public class MyLinkedList {
             tempNode.setNext(insertingNode);
         }
 
+    public void deleteFirstElement() {
+        head = head.getNext();
+
+        }
+
+
     public void printMyNodes() {
         StringBuffer myNodes = new StringBuffer("My Nodes: ");
         INode tempNode = head;
